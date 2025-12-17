@@ -3,280 +3,438 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kareanna65 • Beauty</title>
-  <meta name="description" content="Shop curated beauty from Kareanna65 on eBay — skincare, makeup, haircare, fragrance." />
+  <title>Kareanna65 • Beauty Outlet</title>
+  <meta name="description" content="Shop skincare, makeup, haircare, fragrance & beauty bundles from Kareanna65 on eBay." />
 
   <style>
     :root{
-      --bg:#fff7fb;
+      --bg:#fbfaf7;
       --paper:#ffffff;
-      --ink:#151018;
-      --muted:#6b5f6a;
-      --line:#efe2ea;
+      --ink:#121212;
+      --muted:#5f5f5f;
+      --line:#e7e3db;
+      --soft:#f4f1ea;
 
-      --pink:#e9a3bf;
-      --pink2:#d77aa5;
+      --brand:#0f6a4b;      /* premium green */
+      --brand2:#0b5039;     /* darker green */
+      --accent:#b08d57;     /* subtle gold */
+      --danger:#b42318;
 
       --radius:18px;
-      --shadow: 0 18px 50px rgba(21,16,24,.10);
-      --max:1120px;
+      --radius2:26px;
+      --shadow: 0 18px 50px rgba(16,16,16,.10);
+
+      --max:1220px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:var(--font);
       color:var(--ink);
       background:
-        radial-gradient(900px 500px at 12% -10%, rgba(233,163,191,.28), transparent 60%),
-        radial-gradient(900px 520px at 92% 0%, rgba(239,226,234,.75), transparent 60%),
+        radial-gradient(1100px 520px at 10% -10%, rgba(15,106,75,.10), transparent 55%),
+        radial-gradient(900px 420px at 95% 0%, rgba(176,141,87,.14), transparent 55%),
         linear-gradient(var(--bg), var(--bg));
     }
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    /* Top bar */
-    .topbar{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(12px);
-      background: rgba(255,247,251,.80);
+    /* Promo bar */
+    .promo{
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      color:#fff;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .promo .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 18px;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .promo b{font-weight:800}
+    .promo a{
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.45);
+      padding-bottom:1px;
+      white-space:nowrap;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(251,250,247,.78);
       border-bottom:1px solid var(--line);
     }
-    .topbar .wrap{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    .header-top{
+      display:grid;
+      grid-template-columns: 240px 1fr 260px;
+      gap:12px;
+      align-items:center;
       padding:14px 0;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width:0;
+    .logo{
+      display:flex; align-items:center; gap:12px;
+      min-height:44px;
     }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(135deg, var(--pink2), var(--pink));
-      box-shadow: 0 10px 24px rgba(215,122,165,.25);
-      flex:0 0 auto;
-    }
-    .brand b{
-      font-size:13px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-weight:900;
-      white-space:nowrap;
-    }
-    .brand span{
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-left:10px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-    .btn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.92);
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-weight:900;
-      cursor:pointer;
-      transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
-      white-space:nowrap;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow: 0 14px 34px rgba(21,16,24,.10)}
-    .btn.primary{
-      background: linear-gradient(135deg, var(--pink2), var(--pink));
-      color:#fff;
-      border-color:transparent;
-      box-shadow: 0 16px 44px rgba(215,122,165,.22);
-    }
-    .btn.primary:hover{box-shadow: 0 20px 58px rgba(215,122,165,.28)}
-
-    /* Hero */
-    .hero{padding:22px 0 10px}
-    .heroCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.90);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      min-height: 380px;
-    }
-
-    .heroText{
-      padding:26px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.85);
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
-      width:fit-content;
-      margin-bottom:14px;
-      font-weight:800;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size:46px;
-      line-height:1.02;
-      letter-spacing:-.03em;
-    }
-    .lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.75;
-      max-width: 56ch;
-    }
-    .heroCtas{display:flex; gap:10px; flex-wrap:wrap}
-
-    .heroMedia{
-      position:relative;
+    .mark{
+      width:40px; height:40px; border-radius:14px;
       background:
-        radial-gradient(900px 420px at 30% 10%, rgba(233,163,191,.18), transparent 60%),
-        linear-gradient(135deg, rgba(239,226,234,.85), rgba(255,255,255,.35));
-      padding:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), transparent 55%),
+        linear-gradient(135deg, rgba(15,106,75,.9), rgba(176,141,87,.65));
+      box-shadow: 0 12px 28px rgba(16,16,16,.12);
+      border:1px solid rgba(255,255,255,.55);
+      flex: 0 0 auto;
     }
-    .heroMedia img{
-      width:100%;
-      height:100%;
-      max-height: 340px;
-      object-fit:cover;
-      border-radius: 22px;
-      border:1px solid var(--line);
-      box-shadow: 0 18px 46px rgba(21,16,24,.12);
+    .logo .name{
+      line-height:1.1;
+      min-width: 0;
+    }
+    .logo .name .top{
+      font-size:12px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .logo .name .big{
+      font-size:18px; letter-spacing:.18em; text-transform:uppercase; font-weight:900;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
 
     /* Search */
-    .searchRow{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
     .search{
+      display:flex; gap:10px; align-items:center;
+    }
+    .searchbox{
       flex:1;
-      min-width: 240px;
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:10px;
       border:1px solid var(--line);
       border-radius:999px;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.88);
       padding:10px 12px;
-      box-shadow: 0 10px 24px rgba(21,16,24,.06);
+      box-shadow: 0 10px 24px rgba(16,16,16,.06);
     }
-    .search input{
+    .searchbox svg{opacity:.55; flex:0 0 auto}
+    .searchbox input{
       width:100%;
       border:0;
       outline:none;
       background:transparent;
       font-size:14px;
     }
-    .search svg{opacity:.6; flex:0 0 auto}
+    .btn{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      border-radius:999px;
+      padding:11px 14px;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:800;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow: 0 14px 34px rgba(16,16,16,.10)}
+    .btn.primary{
+      background: var(--brand);
+      border-color: var(--brand);
+      color:#fff;
+    }
+    .btn.primary:hover{background: var(--brand2)}
+    .icons{
+      display:flex; gap:10px; justify-content:flex-end; align-items:center;
+      flex-wrap:wrap;
+    }
+    .iconbtn{
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 24px rgba(16,16,16,.06);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .iconbtn:hover{transform:translateY(-1px); box-shadow: 0 14px 34px rgba(16,16,16,.10)}
+    .iconbtn svg{opacity:.8}
+
+    /* Category nav */
+    .nav{
+      border-top:1px solid var(--line);
+    }
+    .nav .wrap{
+      display:flex; gap:10px; align-items:center;
+      padding:10px 0;
+      flex-wrap:wrap;
+    }
+    .nav a.navlink{
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav a.navlink:hover{
+      color:var(--ink);
+      border-color: var(--line);
+      background: rgba(255,255,255,.75);
+    }
+    .nav a.deal{
+      color: var(--danger);
+      border-color: rgba(180,35,24,.20);
+      background: rgba(180,35,24,.06);
+    }
+
+    /* Trust badges */
+    .trust{
+      padding:14px 0 0;
+    }
+    .trust-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .trust-card{
+      grid-column: span 4;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px rgba(16,16,16,.08);
+      padding:14px 14px;
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .trust-card svg{opacity:.85; flex:0 0 auto}
+    .trust-card .t{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .trust-card .d{
+      margin:0;
+      font-size:13px;
+      line-height:1.55;
+      color:var(--muted);
+    }
+
+    /* Hero */
+    .hero{
+      padding:18px 0 0;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-main{
+      padding:26px;
+      min-height: 360px;
+    }
+    .hero-main:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 420px at 15% 10%, rgba(15,106,75,.14), transparent 60%),
+        radial-gradient(700px 360px at 90% 10%, rgba(176,141,87,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative; z-index:1}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:50px;
+      line-height:1.02;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+      max-width: 62ch;
+    }
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap}
+
+    .hero-side{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      gap:16px;
+    }
+    .side-block{
+      padding:18px;
+    }
+    .side-title{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 8px;
+      font-weight:800;
+    }
+    .bigline{
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.2;
+      font-weight:900;
+      letter-spacing:-.01em;
+    }
+    .small{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
 
     /* Sections */
     .section{padding:18px 0 0}
-    .head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:12px;
-      margin: 16px 0 12px;
+    .section-head{
+      display:flex; justify-content:space-between; align-items:end; gap:12px;
+      margin: 18px 0 12px;
     }
-    .head h2{
+    .section-head h2{
       margin:0;
-      font-size:12px;
-      letter-spacing:.16em;
+      font-size:14px;
+      letter-spacing:.14em;
       text-transform:uppercase;
       color:var(--muted);
-      font-weight:950;
+      font-weight:900;
     }
-    .head .mini{
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      white-space:nowrap;
+    .section-head .hint{
+      font-size:12px; color:var(--muted);
+      letter-spacing:.10em; text-transform:uppercase;
     }
 
-    /* Product grid */
-    .grid{
+    /* Tiles */
+    .tiles{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap:14px;
     }
-    .card{
-      grid-column: span 3;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.94);
+    .tile{
+      grid-column: span 4;
+      padding:18px;
       border-radius: var(--radius);
-      box-shadow: 0 12px 32px rgba(21,16,24,.08);
-      overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 32px rgba(16,16,16,.08);
       transition: transform .14s ease, box-shadow .14s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 22px 60px rgba(21,16,24,.12);
-    }
-    .media{
-      aspect-ratio: 4/3;
+      position:relative;
       overflow:hidden;
-      background: linear-gradient(135deg, rgba(239,226,234,.9), rgba(233,163,191,.22));
+      min-height: 140px;
     }
-    .media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform: scale(1.01);
-      transition: transform .25s ease;
-    }
-    .card:hover .media img{transform: scale(1.06)}
-    .body{padding:12px 12px 14px}
-    .title{
-      margin:0 0 6px;
-      font-size:13px;
-      letter-spacing:.10em;
+    .tile:hover{transform:translateY(-2px); box-shadow: 0 18px 44px rgba(16,16,16,.12)}
+    .tile .k{
+      font-size:12px;
+      letter-spacing:.12em;
       text-transform:uppercase;
-      font-weight:950;
+      color:var(--muted);
+      margin:0 0 10px;
+      font-weight:900;
     }
-    .desc{
-      margin:0 0 12px;
+    .tile .t{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.01em;
+    }
+    .tile .d{
+      margin:0;
       color:var(--muted);
       font-size:13px;
       line-height:1.55;
     }
-    .meta{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
+    .tile:after{
+      content:"";
+      position:absolute; right:-70px; top:-70px;
+      width:200px; height:200px; border-radius:50%;
+      background: radial-gradient(circle at 35% 35%, rgba(15,106,75,.18), transparent 60%);
+      pointer-events:none;
     }
-    .pill{
+    .tile:nth-child(2):after{ background: radial-gradient(circle at 35% 35%, rgba(176,141,87,.18), transparent 60%); }
+    .tile:nth-child(3):after{ background: radial-gradient(circle at 35% 35%, rgba(180,35,24,.12), transparent 60%); }
+
+    /* Featured grid */
+    .products{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .p{
+      grid-column: span 3;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      overflow:hidden;
+      box-shadow: 0 12px 32px rgba(16,16,16,.08);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .p:hover{transform:translateY(-2px); box-shadow: 0 18px 44px rgba(16,16,16,.12)}
+    .ph{
+      aspect-ratio: 4/3;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(15,106,75,.14), transparent 60%),
+        linear-gradient(135deg, rgba(16,16,16,.04), rgba(16,16,16,.02));
+      display:flex; align-items:center; justify-content:center;
+      padding:16px;
+    }
+    .ph span{
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(18,18,18,.55);
+      font-size:12px;
+      text-align:center;
+      line-height:1.6;
+    }
+    .pi{padding:12px 12px 14px}
+    .pn{
+      margin:0 0 6px;
+      font-size:13px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+    .pd{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .row{display:flex; justify-content:space-between; gap:10px; align-items:center}
+    .tag{
       font-size:11px;
       letter-spacing:.12em;
       text-transform:uppercase;
@@ -284,193 +442,323 @@
       border:1px solid var(--line);
       padding:8px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.80);
-      font-weight:800;
+      background: rgba(255,255,255,.70);
     }
 
     /* Footer */
     footer{
-      padding:26px 0 44px;
-      margin-top:18px;
+      margin-top:22px;
       border-top:1px solid var(--line);
+      padding:18px 0 44px;
       color:var(--muted);
       font-size:12px;
-      letter-spacing:.08em;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+      letter-spacing:.06em;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
       align-items:center;
     }
 
     /* Responsive */
-    @media (max-width: 980px){
-      .heroCard{grid-template-columns: 1fr}
-      .heroMedia img{max-height: 280px}
-      h1{font-size:40px}
-      .card{grid-column: span 4}
+    @media (max-width: 1040px){
+      .header-top{grid-template-columns: 220px 1fr 220px}
+      h1{font-size:44px}
+      .p{grid-column: span 4}
+      .tile{grid-column: span 6}
+      .hero-grid{grid-template-columns:1fr}
+      .trust-card{grid-column: span 6}
     }
-    @media (max-width: 680px){
-      .card{grid-column: span 6}
-      h1{font-size:36px}
-      .brand span{display:none}
+    @media (max-width: 720px){
+      .header-top{grid-template-columns: 1fr; gap:10px}
+      .icons{justify-content:flex-start}
+      h1{font-size:38px}
+      .p{grid-column: span 6}
     }
-    @media (max-width: 460px){
-      .card{grid-column: span 12}
-      .heroText{padding:20px}
-      .heroMedia{padding:14px}
-    }
-
-    :focus-visible{
-      outline: 3px solid rgba(215,122,165,.45);
-      outline-offset: 3px;
-      border-radius: 10px;
+    @media (max-width: 520px){
+      .p{grid-column: span 12}
+      .tile{grid-column: span 12}
+      .trust-card{grid-column: span 12}
     }
   </style>
 </head>
 
 <body>
-  <!-- Minimal sticky top bar -->
-  <div class="topbar">
+  <!-- Promo bar -->
+  <div class="promo">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="dot" aria-hidden="true"></span>
-        <b>KAREANNA65</b>
-        <span>Beauty storefront • eBay checkout</span>
+      <div><b>Beauty Drops</b> • New listings added often • Shop bundles & deals</div>
+      <a target="_blank" rel="noopener"
+         href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_sop=10">
+        Shop newly listed →
       </a>
-
-      <div class="actions">
-        <a class="btn" target="_blank" rel="noopener" href="https://www.ebay.com/usr/kareanna65">Profile</a>
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
-          Shop eBay →
-        </a>
-      </div>
     </div>
   </div>
 
+  <!-- Sticky header -->
+  <header>
+    <div class="wrap">
+      <div class="header-top">
+        <a class="logo" href="#top" aria-label="Home">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="name">
+            <div class="top">eBay storefront</div>
+            <div class="big">KAREANNA65</div>
+          </div>
+        </a>
+
+        <div class="search">
+          <form class="searchbox" id="searchForm" aria-label="Search listings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="q" type="search" placeholder="Search my store (ex: “vitamin c”, “lip gloss”, “olaplex”, “perfume set”)"/>
+          </form>
+
+          <a class="btn primary" target="_blank" rel="noopener"
+             href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
+            All listings
+          </a>
+        </div>
+
+        <div class="icons">
+          <a class="iconbtn" target="_blank" rel="noopener" href="https://www.ebay.com/usr/kareanna65" title="eBay profile" aria-label="eBay profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 20a8 8 0 1 0-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="iconbtn" target="_blank" rel="noopener"
+             href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1"
+             title="Shop on eBay" aria-label="Shop on eBay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 7h15l-1.5 9H7.5L6 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 7a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category nav -->
+    <div class="nav">
+      <div class="wrap">
+        <a class="navlink deal" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
+          Deals & Bundles
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=skincare">
+          Skincare
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=makeup">
+          Makeup
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=haircare">
+          Haircare
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
+          Fragrance
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+tools">
+          Tools
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main class="wrap" id="top">
 
+    <!-- Trust badges -->
+    <section class="trust" aria-label="Store trust badges">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 7h14l4 4v6H3V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M17 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div>
+            <p class="t">Fast browsing</p>
+            <p class="d">Search + categories that open straight to live eBay results.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2 20 6v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <p class="t">Secure checkout</p>
+            <p class="d">All purchases happen on eBay for buyer protection and security.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="t">Deals first</p>
+            <p class="d">Bundles + value sets highlighted so shoppers find wins fast.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Hero -->
-    <section class="hero">
-      <div class="heroCard">
-        <div class="heroText">
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> curated drops • fast checkout</div>
-          <h1>Modern beauty, priced right.</h1>
-          <p class="lead">
-            Sleek storefront. Real eBay listings. Tap a category, search a brand, or shop featured picks below.
-          </p>
-
-          <div class="heroCtas">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_sop=10">
-              New arrivals
-            </a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
-              Bundles
-            </a>
-            <a class="btn" href="#featured">Featured</a>
-          </div>
-
-          <div class="searchRow">
-            <form class="search" id="searchForm" aria-label="Search listings">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <input id="q" type="search" placeholder="Search my store (ex: cerave, olaplex, lip gloss…)" />
-            </form>
-
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=skincare">
-              Skincare
-            </a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=makeup">
-              Makeup
-            </a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=haircare">
-              Haircare
-            </a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
-              Fragrance
-            </a>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="hero-content">
+            <div class="pill"><span class="dot"></span> curated beauty • direct to eBay checkout</div>
+            <h1>Shop beauty like a real brand.</h1>
+            <p class="sub">
+              Competitive layout, clean design, and built to convert. Use search or tap a category to open
+              live listings from my eBay store.
+            </p>
+            <div class="hero-cta">
+              <a class="btn primary" target="_blank" rel="noopener"
+                 href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_sop=10">
+                New arrivals
+              </a>
+              <a class="btn" target="_blank" rel="noopener"
+                 href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
+                Shop bundles
+              </a>
+              <a class="btn" href="#featured">Featured picks</a>
+            </div>
           </div>
         </div>
 
-        <div class="heroMedia" aria-label="Featured visual">
-          <!-- Use one of your repo images as the hero -->
-          <img src="./leave_in.webp" alt="Beauty feature image">
+        <div class="hero-side">
+          <div class="card side-block">
+            <p class="side-title">Best way to shop</p>
+            <p class="bigline">Search a brand name.</p>
+            <p class="small">Try: <b>CeraVe</b>, <b>Olaplex</b>, <b>Laneige</b>, <b>Fenty</b>, <b>perfume set</b>.</p>
+          </div>
+
+          <div class="card side-block">
+            <p class="side-title">Deals area</p>
+            <p class="bigline">Bundles & value sets.</p>
+            <p class="small">One tap opens deals filtered to my store listings.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured cards using your .webp images -->
+    <!-- Category tiles -->
+    <section class="section" aria-label="Shop by category">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+        <div class="hint">one-tap to live results</div>
+      </div>
+
+      <div class="tiles">
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=skincare">
+          <p class="k">Skincare</p>
+          <p class="t">Glow essentials</p>
+          <p class="d">Cleansers, serums, moisturizers, masks—routine-ready picks.</p>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=makeup">
+          <p class="k">Makeup</p>
+          <p class="t">Everyday staples</p>
+          <p class="d">Face, eyes, lips—easy wins and trending favorites.</p>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
+          <p class="k">Deals</p>
+          <p class="t">Bundles & value sets</p>
+          <p class="d">Multi-item deals—perfect for trying more while spending less.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured picks -->
     <section class="section" id="featured" aria-label="Featured picks">
-      <div class="head">
-        <h2>Featured picks</h2>
-        <div class="mini">tap to shop on eBay</div>
+  <div class="section-head">
+    <h2>Featured picks</h2>
+    <div class="hint">click to shop on eBay</div>
+  </div>
+
+  <div class="products">
+    <a class="p" target="_blank" rel="noopener"
+       href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=vitamin+c+serum">
+      <div class="ph" style="padding:0;background:none;">
+        <img src="./vitamin_c.webp" alt="Vitamin C Serum"
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block">
       </div>
-
-      <div class="grid">
-        <a class="card" target="_blank" rel="noopener"
-           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=vitamin+c+serum">
-          <div class="media"><img src="./vitamin_c.webp" alt="Vitamin C Serum"></div>
-          <div class="body">
-            <p class="title">Vitamin C Serum</p>
-            <p class="desc">Brightening skincare favorites.</p>
-            <div class="meta"><span class="pill">Skincare</span><span class="pill">Shop →</span></div>
-          </div>
-        </a>
-
-        <a class="card" target="_blank" rel="noopener"
-           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=lip+gloss">
-          <div class="media"><img src="./rodan%20lip.webp" alt="Lip favorites"></div>
-          <div class="body">
-            <p class="title">Lip Favorites</p>
-            <p class="desc">Gloss, balm, and lip essentials.</p>
-            <div class="meta"><span class="pill">Makeup</span><span class="pill">Shop →</span></div>
-          </div>
-        </a>
-
-        <a class="card" target="_blank" rel="noopener"
-           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=leave+in+conditioner">
-          <div class="media"><img src="./leave_in.webp" alt="Leave-in haircare"></div>
-          <div class="body">
-            <p class="title">Leave-In Haircare</p>
-            <p class="desc">Smooth, detangle, protect.</p>
-            <div class="meta"><span class="pill">Hair</span><span class="pill">Shop →</span></div>
-          </div>
-        </a>
-
-        <a class="card" target="_blank" rel="noopener"
-           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
-          <div class="media"><img src="./fragrance.webp" alt="Fragrance"></div>
-          <div class="body">
-            <p class="title">Fragrance</p>
-            <p class="desc">Perfume and scent finds.</p>
-            <div class="meta"><span class="pill">Scent</span><span class="pill">Shop →</span></div>
-          </div>
-        </a>
+      <div class="pi">
+        <p class="pn">Vitamin C Serum</p>
+        <p class="pd">Brightening skincare favorites.</p>
+        <div class="row"><span class="tag">Skincare</span><span class="tag">Shop →</span></div>
       </div>
-    </section>
+    </a>
+
+    <a class="p" target="_blank" rel="noopener"
+       href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=lip+gloss">
+      <div class="ph" style="padding:0;background:none;">
+        <!-- If you DID NOT rename: use ./rodan%20lip.webp -->
+        <img src="./rodan%20lip.webp" alt="Lip product"
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block">
+      </div>
+      <div class="pi">
+        <p class="pn">Lip Favorites</p>
+        <p class="pd">Gloss, balm, and lip essentials.</p>
+        <div class="row"><span class="tag">Makeup</span><span class="tag">Shop →</span></div>
+      </div>
+    </a>
+
+    <a class="p" target="_blank" rel="noopener"
+       href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=leave+in+conditioner">
+      <div class="ph" style="padding:0;background:none;">
+        <img src="./leave_in.webp" alt="Leave-in conditioner"
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block">
+      </div>
+      <div class="pi">
+        <p class="pn">Leave-In Haircare</p>
+        <p class="pd">Smooth, detangle, protect.</p>
+        <div class="row"><span class="tag">Hair</span><span class="tag">Shop →</span></div>
+      </div>
+    </a>
+
+    <a class="p" target="_blank" rel="noopener"
+       href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
+      <div class="ph" style="padding:0;background:none;">
+        <img src="./fragrance.webp" alt="Fragrance"
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block">
+      </div>
+      <div class="pi">
+        <p class="pn">Fragrance</p>
+        <p class="pd">Perfume and scent finds.</p>
+        <div class="row"><span class="tag">Scent</span><span class="tag">Shop →</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
 
     <footer>
-      <div>© <span id="y"></span> Kareanna65</div>
+      <div>© <span id="y"></span> Kareanna65 • Built for speed + clicks</div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" target="_blank" rel="noopener" href="https://www.ebay.com/usr/kareanna65">eBay Profile</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.ebay.com/usr/kareanna65">eBay profile</a>
         <a class="btn primary" target="_blank" rel="noopener"
            href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
-          Shop eBay →
+          Shop on eBay →
         </a>
       </div>
     </footer>
   </main>
 
   <script>
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
     // Search -> opens live eBay results for your store only
