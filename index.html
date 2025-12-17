@@ -3,212 +3,676 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kareanna65 • eBay Storefront</title>
-  <meta name="description" content="Shop the latest listings from Kareanna65 on eBay." />
+  <title>Kareanna65 • Beauty Outlet</title>
+  <meta name="description" content="Shop skincare, makeup, haircare, fragrance & beauty bundles from Kareanna65 on eBay." />
+
   <style>
     :root{
-      --bg:#fbfbf8;
-      --text:#111114;
-      --muted:#5b5b63;
-      --line:#e7e7e0;
-      --card:#ffffff; 
-      --shadow: 0 14px 40px rgba(17,17,20,.08);
+      --bg:#fbfaf7;
+      --paper:#ffffff;
+      --ink:#121212;
+      --muted:#5f5f5f;
+      --line:#e7e3db;
+      --soft:#f4f1ea;
+
+      --brand:#0f6a4b;      /* premium green */
+      --brand2:#0b5039;     /* darker green */
+      --accent:#b08d57;     /* subtle gold */
+      --danger:#b42318;
+
       --radius:18px;
-      --max:1120px;
-      --accent:#111114;
-      --accent2:#b08d57; /* subtle gold */
+      --radius2:26px;
+      --shadow: 0 18px 50px rgba(16,16,16,.10);
+
+      --max:1220px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
     }
+
     *{box-sizing:border-box}
-    body{margin:0; font-family:var(--font); background:var(--bg); color:var(--text)}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 520px at 10% -10%, rgba(15,106,75,.10), transparent 55%),
+        radial-gradient(900px 420px at 95% 0%, rgba(176,141,87,.14), transparent 55%),
+        linear-gradient(var(--bg), var(--bg));
+    }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Promo bar */
+    .promo{
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      color:#fff;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .promo .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 18px;
+      gap:14px;
+    }
+    .promo b{font-weight:700}
+    .promo a{
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.45);
+      padding-bottom:1px;
+      white-space:nowrap;
+    }
+
+    /* Header */
     header{
-      position:sticky; top:0; z-index:10;
-      background:rgba(251,251,248,.9);
+      position:sticky; top:0; z-index:30;
       backdrop-filter: blur(10px);
+      background: rgba(251,250,247,.78);
       border-bottom:1px solid var(--line);
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:14px}
-    .brand{display:flex; align-items:baseline; gap:10px}
-    .brand b{letter-spacing:.22em; text-transform:uppercase; font-size:12px}
-    .brand span{color:var(--muted); font-size:12px}
-    nav{display:flex; gap:10px; flex-wrap:wrap}
-    nav a{font-size:13px; color:var(--muted); padding:8px 10px; border-radius:999px}
-    nav a:hover{background:#f0f0ea; color:var(--text)}
+    .header-top{
+      display:grid;
+      grid-template-columns: 220px 1fr 280px;
+      gap:12px;
+      align-items:center;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex; align-items:center; gap:12px;
+      min-height:44px;
+    }
+    .mark{
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), transparent 55%),
+        linear-gradient(135deg, rgba(15,106,75,.9), rgba(176,141,87,.65));
+      box-shadow: 0 12px 28px rgba(16,16,16,.12);
+      border:1px solid rgba(255,255,255,.55);
+    }
+    .logo .name{
+      line-height:1.1;
+    }
+    .logo .name .top{
+      font-size:12px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase;
+    }
+    .logo .name .big{
+      font-size:18px; letter-spacing:.18em; text-transform:uppercase; font-weight:800;
+    }
+
+    /* Search */
+    .search{
+      display:flex; gap:10px; align-items:center;
+    }
+    .searchbox{
+      flex:1;
+      display:flex; align-items:center; gap:10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.85);
+      padding:10px 12px;
+      box-shadow: 0 10px 24px rgba(16,16,16,.06);
+    }
+    .searchbox svg{opacity:.55}
+    .searchbox input{
+      width:100%;
+      border:0;
+      outline:none;
+      background:transparent;
+      font-size:14px;
+    }
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:999px;
-      border:1px solid var(--text); background:var(--text); color:#fff;
-      font-weight:700; font-size:13px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      border-radius:999px;
+      padding:11px 14px;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:700;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+      white-space:nowrap;
     }
-    .btn.ghost{background:transparent; color:var(--text)}
-    .btn.ghost:hover{background:#f0f0ea}
-    .hero{padding:56px 0 30px}
-    .heroGrid{display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
-    @media (max-width:900px){.heroGrid{grid-template-columns:1fr} nav{display:none}}
-    .heroCard{
-      background:var(--card); border:1px solid var(--line);
-      border-radius:26px; padding:34px; box-shadow:var(--shadow);
+    .btn:hover{transform:translateY(-1px); box-shadow: 0 14px 34px rgba(16,16,16,.10)}
+    .btn.primary{
+      background: var(--brand);
+      border-color: var(--brand);
+      color:#fff;
     }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+    .btn.primary:hover{background: var(--brand2)}
+    .icons{
+      display:flex; gap:10px; justify-content:flex-end; align-items:center;
     }
-    .kicker i{width:8px; height:8px; border-radius:999px; background:var(--accent2); display:inline-block}
-    h1{
-      margin:14px 0 12px;
-      font-family:var(--serif);
-      font-size:56px; line-height:1.02;
-      letter-spacing:-.03em;
+    .iconbtn{
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 24px rgba(16,16,16,.06);
+      transition: transform .14s ease, box-shadow .14s ease;
     }
-    .lead{margin:0 0 18px; color:var(--muted); font-size:16px; line-height:1.7; max-width:58ch}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .panel{
-      background:var(--card); border:1px solid var(--line);
-      border-radius:26px; padding:26px; box-shadow:var(--shadow);
+    .iconbtn:hover{transform:translateY(-1px); box-shadow: 0 14px 34px rgba(16,16,16,.10)}
+    .iconbtn svg{opacity:.8}
+
+    /* Category nav (WOB-like, simplified) */
+    .nav{
+      border-top:1px solid var(--line);
     }
-    .panel h3{margin:0 0 6px; font-size:14px; letter-spacing:.12em; text-transform:uppercase}
-    .panel p{margin:0 0 16px; color:var(--muted); line-height:1.6}
-    .list{display:grid; gap:10px}
-    .pill{
-      border:1px solid var(--line); border-radius:999px; padding:12px 14px;
-      display:flex; justify-content:space-between; align-items:center; gap:10px;
-      background:#fff;
+    .nav .wrap{
+      display:flex; gap:14px; align-items:center;
+      padding:10px 0;
+      flex-wrap:wrap;
     }
-    .pill small{color:var(--muted)}
-    section{padding:22px 0}
-    .titleRow{display:flex; justify-content:space-between; align-items:end; gap:12px; margin:6px 0 14px}
-    .titleRow h2{margin:0; font-size:22px; letter-spacing:-.02em}
-    .titleRow p{margin:0; color:var(--muted); font-size:13px}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .nav a.navlink{
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav a.navlink:hover{
+      color:var(--ink);
+      border-color: var(--line);
+      background: rgba(255,255,255,.70);
+    }
+    .nav a.deal{
+      color: var(--danger);
+      border-color: rgba(180,35,24,.20);
+      background: rgba(180,35,24,.06);
+    }
+
+    /* Hero */
+    .hero{
+      padding:22px 0 0;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
     .card{
-      border:1px solid var(--line); border-radius:var(--radius);
-      background:var(--card); padding:18px; box-shadow:0 10px 26px rgba(17,17,20,.06);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
     }
-    .card b{display:block; margin-top:10px}
-    .card p{margin:8px 0 0; color:var(--muted); line-height:1.6; font-size:13px}
-    .bigCta{
-      border:1px solid var(--text);
-      border-radius:28px;
+    .hero-main{
       padding:26px;
-      background:linear-gradient(180deg, #fff, #fbfbf8);
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      min-height: 360px;
     }
-    footer{padding:30px 0 40px; color:var(--muted); font-size:12px}
-    html{scroll-behavior:smooth}
+    .hero-main:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 420px at 15% 10%, rgba(15,106,75,.14), transparent 60%),
+        radial-gradient(700px 360px at 90% 10%, rgba(176,141,87,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative; z-index:1}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:50px;
+      line-height:1.02;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+      max-width: 62ch;
+    }
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap}
+
+    .hero-side{
+      display:grid;
+      grid-template-rows: 1fr 1fr;
+      gap:16px;
+    }
+    .side-block{
+      padding:18px;
+    }
+    .side-title{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 8px;
+    }
+    .bigline{
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.2;
+      font-weight:800;
+    }
+    .small{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    /* Sections */
+    .section{padding:22px 0 0}
+    .section-head{
+      display:flex; justify-content:space-between; align-items:end; gap:12px;
+      margin: 18px 0 12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-head .hint{
+      font-size:12px; color:var(--muted);
+      letter-spacing:.10em; text-transform:uppercase;
+    }
+
+    /* Tiles (like WOB category blocks) */
+    .tiles{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .tile{
+      grid-column: span 4;
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 32px rgba(16,16,16,.08);
+      transition: transform .14s ease, box-shadow .14s ease;
+      position:relative;
+      overflow:hidden;
+      min-height: 140px;
+    }
+    .tile:hover{transform:translateY(-2px); box-shadow: 0 18px 44px rgba(16,16,16,.12)}
+    .tile .k{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 10px;
+    }
+    .tile .t{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.01em;
+    }
+    .tile .d{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .tile:after{
+      content:"";
+      position:absolute; right:-70px; top:-70px;
+      width:200px; height:200px; border-radius:50%;
+      background: radial-gradient(circle at 35% 35%, rgba(15,106,75,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .tile:nth-child(2):after{ background: radial-gradient(circle at 35% 35%, rgba(176,141,87,.18), transparent 60%); }
+    .tile:nth-child(3):after{ background: radial-gradient(circle at 35% 35%, rgba(180,35,24,.12), transparent 60%); }
+
+    /* Product grid (static “featured” cards linking to eBay searches) */
+    .products{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .p{
+      grid-column: span 3;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      overflow:hidden;
+      box-shadow: 0 12px 32px rgba(16,16,16,.08);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .p:hover{transform:translateY(-2px); box-shadow: 0 18px 44px rgba(16,16,16,.12)}
+    .ph{
+      aspect-ratio: 4/3;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(15,106,75,.14), transparent 60%),
+        linear-gradient(135deg, rgba(16,16,16,.04), rgba(16,16,16,.02));
+      display:flex; align-items:center; justify-content:center;
+      padding:16px;
+    }
+    .ph span{
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color: rgba(18,18,18,.55);
+      font-size:12px;
+      text-align:center;
+      line-height:1.6;
+    }
+    .pi{padding:12px 12px 14px}
+    .pn{
+      margin:0 0 6px;
+      font-size:13px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+    .pd{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .row{display:flex; justify-content:space-between; gap:10px; align-items:center}
+    .tag{
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:28px;
+      border-top:1px solid var(--line);
+      padding:18px 0 40px;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.06em;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 1040px){
+      .header-top{grid-template-columns: 200px 1fr 220px}
+      h1{font-size:44px}
+      .p{grid-column: span 4}
+      .tile{grid-column: span 6}
+      .hero-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .header-top{grid-template-columns: 1fr; gap:10px}
+      .icons{justify-content:flex-start}
+      h1{font-size:38px}
+      .p{grid-column: span 6}
+    }
+    @media (max-width: 520px){
+      .p{grid-column: span 12}
+      .tile{grid-column: span 12}
+      .promo .wrap{flex-direction:column; align-items:flex-start}
+    }
   </style>
 </head>
-<body>
-<script>const EBAY_URL="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1";</script>
 
-<header>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand"><b>KAREANNA65</b><span>• eBay storefront</span></div>
-      <nav>
-        <a href="#shop">Shop</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#how">How it works</a>
-      </nav>
-      <a class="btn" id="shopTop" href="#" target="_blank" rel="noopener">Shop on eBay →</a>
+<body>
+  <!-- Promo bar -->
+  <div class="promo">
+    <div class="wrap">
+      <div><b>Beauty Deals</b> • New listings added often</div>
+      <a target="_blank" rel="noopener"
+         href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_sop=10">
+        Shop Newly Listed →
+      </a>
     </div>
   </div>
-</header>
 
-<main class="wrap">
-  <section class="hero" id="shop">
-    <div class="heroGrid">
-      <div class="heroCard">
-        <div class="kicker"><i></i> curated listings • fast checkout</div>
-        <h1>Shop the live store.</h1>
-        <p class="lead">
-          This page is a clean front door — click through to see the most current inventory, pricing, and item details on eBay.
-        </p>
-        <div class="cta">
-          <a class="btn" id="shopHero" href="#" target="_blank" rel="noopener">View Listings →</a>
-          <a class="btn ghost" href="#highlights">See highlights</a>
-        </div>
-      </div>
+  <!-- Sticky header -->
+  <header>
+    <div class="wrap">
+      <div class="header-top">
+        <a class="logo" href="#top" aria-label="Home">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="name">
+            <div class="top">eBay storefront</div>
+            <div class="big">KAREANNA65</div>
+          </div>
+        </a>
 
-      <aside class="panel">
-        <h3>Quick picks</h3>
-        <p>Use these shortcuts to jump into the store.</p>
-        <div class="list">
-          <a class="pill" id="allListings" href="#" target="_blank" rel="noopener">
-            <span>All listings</span><small>Open store</small>
-          </a>
-          <a class="pill" id="newListings" href="#" target="_blank" rel="noopener">
-            <span>New arrivals</span><small>Latest items</small>
-          </a>
-          <a class="pill" id="saveStore" href="#" target="_blank" rel="noopener">
-            <span>Save the store</span><small>Follow on eBay</small>
+        <div class="search">
+          <form class="searchbox" id="searchForm">
+            <!-- search icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="q" type="search" placeholder="Search my eBay listings (e.g., 'skincare', 'lip gloss', 'perfume')" />
+          </form>
+
+          <a class="btn primary" target="_blank" rel="noopener"
+             href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
+            All listings
           </a>
         </div>
-      </aside>
-    </div>
-  </section>
 
-  <section id="highlights">
-    <div class="titleRow">
-      <h2>Highlights</h2>
-      <p>Simple. Trustworthy. Always up to date.</p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <span class="kicker"><i></i> Always current</span>
-        <b>Live inventory</b>
-        <p>Listings open directly on eBay, so what you see is what’s actually available.</p>
-      </div>
-      <div class="card">
-        <span class="kicker"><i></i> Easy checkout</span>
-        <b>Secure purchase flow</b>
-        <p>Checkout, tracking, and buyer protections are handled through eBay.</p>
-      </div>
-      <div class="card">
-        <span class="kicker"><i></i> Mobile-friendly</span>
-        <b>Fast browsing</b>
-        <p>Designed to be clean and scrollable on phones, tablets, and desktop.</p>
+        <div class="icons">
+          <a class="iconbtn" target="_blank" rel="noopener" href="https://www.ebay.com/usr/kareanna65" title="eBay profile" aria-label="eBay profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 20a8 8 0 1 0-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="iconbtn" target="_blank" rel="noopener"
+             href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1"
+             title="Shop on eBay" aria-label="Shop on eBay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 7h15l-1.5 9H7.5L6 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 7a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section id="how">
-    <div class="titleRow">
-      <h2>How it works</h2>
-      <p>Three steps, no confusion.</p>
+    <!-- Category nav -->
+    <div class="nav">
+      <div class="wrap">
+        <a class="navlink deal" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
+          Deals & Bundles
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=skincare">
+          Skincare
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=makeup">
+          Makeup
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=haircare">
+          Haircare
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
+          Fragrance
+        </a>
+        <a class="navlink" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+tools">
+          Tools
+        </a>
+      </div>
     </div>
-    <div class="grid">
-      <div class="card"><b>1) Click “Shop”</b><p>Any button opens the live store page.</p></div>
-      <div class="card"><b>2) Browse & buy</b><p>Pick items and checkout on eBay.</p></div>
-      <div class="card"><b>3) Track normally</b><p>Order updates appear in your eBay account.</p></div>
-    </div>
+  </header>
 
-    <div style="height:14px"></div>
+  <main class="wrap" id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <div class="hero-content">
+            <div class="pill"><span class="dot"></span> curated beauty • direct to eBay checkout</div>
+            <h1>Shop beauty like a real brand.</h1>
+            <p class="sub">
+              A clean, conversion-first storefront inspired by top ecommerce layouts—fast categories, strong search, and
+              direct links to live eBay listings.
+            </p>
+            <div class="hero-cta">
+              <a class="btn primary" target="_blank" rel="noopener"
+                 href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_sop=10">
+                Newly listed
+              </a>
+              <a class="btn" target="_blank" rel="noopener"
+                 href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
+                View everything
+              </a>
+              <a class="btn" href="#featured">Featured picks</a>
+            </div>
+          </div>
+        </div>
 
-    <div class="bigCta">
+        <div class="hero-side">
+          <div class="card side-block">
+            <p class="side-title">Why shop here</p>
+            <p class="bigline">Faster browsing. Cleaner vibe. Better clicks.</p>
+            <p class="small">This page is built to feel like a top retailer—while sending buyers straight to your eBay listings.</p>
+          </div>
+
+          <div class="card side-block">
+            <p class="side-title">Quick links</p>
+            <p class="bigline">Bundles • New • Best-sellers</p>
+            <p class="small">
+              Tap a category above, or use the search bar to jump right to what you want.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category tiles -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+        <div class="hint">one-tap to live results</div>
+      </div>
+
+      <div class="tiles">
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=skincare">
+          <p class="k">Skincare</p>
+          <p class="t">Glow essentials</p>
+          <p class="d">Cleansers, serums, moisturizers, masks—routine-ready picks.</p>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=makeup">
+          <p class="k">Makeup</p>
+          <p class="t">Everyday staples</p>
+          <p class="d">Face, eyes, lips—easy wins and trending favorites.</p>
+        </a>
+
+        <a class="tile" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=beauty+bundle">
+          <p class="k">Deals</p>
+          <p class="t">Bundles & value sets</p>
+          <p class="d">Multi-item deals—perfect for trying more while spending less.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured “bestsellers” (static cards, links are live) -->
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>Featured picks</h2>
+        <div class="hint">click to shop on eBay</div>
+      </div>
+
+      <div class="products">
+        <a class="p" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=vitamin+c+serum">
+          <div class="ph"><span>FEATURED<br>Vitamin C Serum</span></div>
+          <div class="pi">
+            <p class="pn">Brightening</p>
+            <p class="pd">Search results filtered to my listings.</p>
+            <div class="row"><span class="tag">Skincare</span><span class="tag">Shop →</span></div>
+          </div>
+        </a>
+
+        <a class="p" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=lip+gloss">
+          <div class="ph"><span>FEATURED<br>Lip Gloss</span></div>
+          <div class="pi">
+            <p class="pn">Glossy</p>
+            <p class="pd">Fast browse for top lip finds in my store.</p>
+            <div class="row"><span class="tag">Makeup</span><span class="tag">Shop →</span></div>
+          </div>
+        </a>
+
+        <a class="p" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=leave+in+conditioner">
+          <div class="ph"><span>FEATURED<br>Leave-In</span></div>
+          <div class="pi">
+            <p class="pn">Smooth</p>
+            <p class="pd">Haircare results filtered to my listings.</p>
+            <div class="row"><span class="tag">Hair</span><span class="tag">Shop →</span></div>
+          </div>
+        </a>
+
+        <a class="p" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1&_nkw=perfume">
+          <div class="ph"><span>FEATURED<br>Fragrance</span></div>
+          <div class="pi">
+            <p class="pn">Signature</p>
+            <p class="pd">Perfume and body sprays from my store.</p>
+            <div class="row"><span class="tag">Scent</span><span class="tag">Shop →</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Kareanna65 • Built for speed + clicks</div>
       <div>
-        <b style="font-size:18px">Ready?</b>
-        <div style="color:var(--muted); margin-top:6px">Open the store and start browsing live listings.</div>
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1">
+          Shop on eBay →
+        </a>
       </div>
-      <a class="btn" id="shopBottom" href="#" target="_blank" rel="noopener">Shop on eBay →</a>
-    </div>
-  </section>
+    </footer>
+  </main>
 
-  <footer>
-    © <span id="yr"></span> Kareanna65 • This landing page links to eBay for live inventory and checkout.
-  </footer>
-</main>
+  <script>
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-<script>
-  // wire CTAs
-  ["shopTop","shopHero","allListings","newListings","saveStore","shopBottom"].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.href=EBAY_URL;
-  });
-  document.getElementById("yr").textContent=new Date().getFullYear();
-</script>
+    // search -> opens live eBay results for your store
+    const form = document.getElementById("searchForm");
+    const q = document.getElementById("q");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const term = (q.value || "").trim();
+      const base = "https://www.ebay.com/sch/i.html?_fss=1&_saslop=1&_sasl=kareanna65&LH_SpecificSeller=1";
+      const url = term ? `${base}&_nkw=${encodeURIComponent(term)}` : base;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+  </script>
 </body>
 </html>
